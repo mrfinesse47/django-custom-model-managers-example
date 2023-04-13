@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from posts.models import Post
 
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse('Hello, welcome to the index page.')
+    posts = Post.objects.all()
+    return render(request, 'posts/index.html',{'posts':posts})
+
+def usingManager(request):
+    pass
+
